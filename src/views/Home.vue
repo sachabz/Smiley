@@ -100,14 +100,14 @@ export default {
   data: () => {
     return {
       bgColour: 'yellow',
-      classes: ['yellow', 'blue', 'purple'
+      classes: ['yellow', 'blue', 'purple', 'green'
       ],
       eye: '0  0',
-      eyes: ['0  0', '__  __', '^  ^', 'x x'],
-      nose: '|',
-      noses: ['|', 'u', 'y', 'x'],
+      eyes: ['0  0', '__  __', '^  ^', 'x x', '6  6'],
+      nose: '..',
+      noses: ['..', 'u', 'y', 'x', "|"],
       mouse: '|________|',
-      mouses: ['|________|', '________', 'O', '--------'],
+      mouses: ['|______|', '________', 'O', '--------', '3', 'x'],
     };
   },
   components: {
@@ -142,11 +142,15 @@ export default {
 }
 
 .blue {
-  background-color: rgb(0, 195, 255);
+  background-color: rgb(129, 222, 250);
 }
 
 .purple {
-  background-color: rgb(255, 0, 255);
+  background-color: rgb(248, 136, 248);
+}
+
+.green {
+  background-color: rgb(0, 255, 115);
 }
 .tapis {
   background-color: rgb(59, 29, 0);
