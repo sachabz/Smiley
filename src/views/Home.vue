@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home overflow">
     <div class="row">
       <h1 class="m-3 mb-5" :class="bgColour">The Smiley Factory</h1>
     </div>
@@ -152,5 +152,9 @@ export default {
   background-color: rgb(59, 29, 0);
   height: 1em;
   width: 100vw;
+}
+
+.overflow {
+  overflow: hidden;
 }
 </style>
