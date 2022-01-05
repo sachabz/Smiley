@@ -1,8 +1,11 @@
 <template>
   <div class="home">
     <div class="row">
+      <h1 class="m-3 mb-5" :class="bgColour">The Smiley Factory</h1>
+    </div>
+    <div class="row">
       <div class="col-6">
-        <h2 :class="bgColour">Step 1 : Select your color :</h2>
+        <p>Step 1 : Select your color :</p>
       </div>
       <div class="col-6">
         <div id="colorcircle">
@@ -14,7 +17,7 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <h2>Step 2 : Select your eyes :</h2>
+        <p>Step 2 : Select your eyes :</p>
       </div>
       <div class="col-6">
         <div id="eyes">
@@ -26,7 +29,19 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <h2>Step 3 : Select your mouse :</h2>
+        <p>Step 3 : Select your nose :</p>
+      </div>
+      <div class="col-6">
+        <div id="eyes">
+          <select v-model="nose">
+            <option v-for="myNose of noses" :key="myNose" :value="myNose">{{ myNose }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <p>Step 4 : Select your mouse :</p>
       </div>
       <div class="col-6">
         <div id="mouses">
@@ -38,21 +53,21 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <h2>Step 4 : Confirm your smiley :</h2>
+        <p>Step 5 : Confirm your smiley :</p>
       </div>
       <div class="col-6">
         <div id="leave">
-          <button v-on:click="circle()">leave the factory</button>
+          <button type="button" class="btn btn-success" v-on:click="circle()">leave the factory</button>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-6">
-        <h2>Step 5 : Create a new smiley :</h2>
+        <p>Step 6 : Create a new smiley :</p>
       </div>
       <div class="col-6">
         <div id="leave">
-          <button v-on:click="reload()">create</button>
+          <button type="button" class="btn btn-success" v-on:click="reload()">create</button>
         </div>
       </div>
     </div>
@@ -62,11 +77,15 @@
         <p :class="eye">{{ eye }}</p>
       </div>
       <div class="nose">
-        <p>|</p>
+        <p :class="nose">{{ nose }}</p>
       </div>
       <div class="mouse">
         <p :class="mouse">{{ mouse }}</p>
       </div>
+    </div>
+    <div class="tapis"></div>
+    <div id="canvas-container-div">
+      <canvas id="canvas"></canvas>
     </div>
   </div>
 </template>
@@ -84,9 +103,11 @@ export default {
       classes: ['yellow', 'blue', 'purple'
       ],
       eye: '0  0',
-      eyes: ['0  0', '__  __', '^  ^', 'D -'],
-      mouse: '________',
-      mouses: ['________/', '________', 'O'],
+      eyes: ['0  0', '__  __', '^  ^', 'x x'],
+      nose: '|',
+      noses: ['|', 'u', 'y', 'x'],
+      mouse: '|________|',
+      mouses: ['|________|', '________', 'O', '--------'],
     };
   },
   components: {
@@ -127,10 +148,9 @@ export default {
 .purple {
   background-color: rgb(255, 0, 255);
 }
-.eyes {
-  background-color: blue;
-  height: 2em;
-  width: 2em;
-  border-radius: 100%;
+.tapis {
+  background-color: rgb(59, 29, 0);
+  height: 1em;
+  width: 100vw;
 }
 </style>
